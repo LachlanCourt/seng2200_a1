@@ -30,17 +30,30 @@ public class PA1
             inputText = createPolygon(inputText);
         }
 
+        Polygon test1 = (Polygon)myPolygonsList.take();
+        Polygon test2 = (Polygon)myPolygonsList.take();
+        Polygon test3 = (Polygon)myPolygonsList.take();
+
+        System.out.println(test1.getLeastDistance());
+        System.out.println(test2.getLeastDistance());
+        System.out.println(test3.getLeastDistance());
+
+        System.out.println(test1.ComesBefore(test2));
+        System.out.println(test2.ComesBefore(test3));
+        System.out.println(test3.ComesBefore(test1));
+        System.out.println(test2.ComesBefore(test1));
+/*
+        myPolygonsList.reset();
         while (true)
         {
-            myPolygonsList.reset();
             Polygon temp = (Polygon)myPolygonsList.take();
-            if (temp == null)
+            System.out.println(temp.toString());
+            System.out.println(temp.getLeastDistance());
+            if (myPolygonsList.step() == -1)
             {
                 break;
             }
-            System.out.println(temp.toString());
-            System.out.println(temp.getLeastDistance());
-        }
+        }*/
         System.out.println("Polygons generated! Sorting...");
 
 
