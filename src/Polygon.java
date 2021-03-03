@@ -1,4 +1,4 @@
-public class Polygon
+public class Polygon implements ComparePoly
 {
     private Point[] points;
     private int pointsSize;
@@ -141,5 +141,50 @@ public class Polygon
     public double getLeastDistance()
     {
         return leastDistance;
+    }
+
+    public double getArea()
+    {
+        return area;
+    }
+
+    public boolean ComesBefore(Object o)
+    {
+        Polygon other = (Polygon)o;
+        double differenceMargin;
+        double areaTest;
+        if (area - other.getArea() < 0)
+        {
+            differenceMargin = 0.05 * area;
+        }
+        else
+        {
+            differenceMargin = 0.05 * other.getArea();
+        }
+        areaTest = area - other.getArea();
+        if (areaTest < 0)
+        {
+            areaTest *= -1;
+        }
+        // Use the calculated distance from the origin
+        if (areaTest < differenceMargin)
+        {
+            if (leastDistance < other.getLeastDistance())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        if (area < other.getArea())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

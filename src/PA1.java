@@ -30,7 +30,6 @@ public class PA1
             inputText = createPolygon(inputText);
         }
 
-
         while (true)
         {
             myPolygonsList.reset();
@@ -41,8 +40,6 @@ public class PA1
             }
             System.out.println(temp.toString());
             System.out.println(temp.getLeastDistance());
-
-
         }
         System.out.println("Polygons generated! Sorting...");
 
