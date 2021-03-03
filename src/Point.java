@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class Point
 {
     private double x;
@@ -34,9 +35,9 @@ public class Point
         return "(" + String.format("%3.2f", x) + " , " + String.format("%3.2f", y) + ")";
     }
 
-    public int calcDistance()
+    public double calcDistance()
     {
-        return 0;
+        return Math.sqrt(Math.pow(y, 2) + Math.pow(x, 2));
     }
 
 }

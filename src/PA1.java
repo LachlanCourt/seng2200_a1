@@ -40,6 +40,8 @@ public class PA1
                 break;
             }
             System.out.println(temp.toString());
+            System.out.println(temp.getLeastDistance());
+
 
         }
         System.out.println("Polygons generated! Sorting...");

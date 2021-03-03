@@ -4,12 +4,13 @@ public class Polygon
     private int pointsSize;
 
     private double area;
-    private double distance;
+    private double leastDistance;
 
     public Polygon(String params)
     {
         interpretString(params);
         calcArea();
+        calcLeastDistance();
     }
 
     private void interpretString(String params)
@@ -107,6 +108,18 @@ public class Polygon
 
     }
 
+    private void calcLeastDistance()
+    {
+        leastDistance = points[0].calcDistance();
+        for (int i = 0; i < pointsSize - 1; i++)
+        {
+            if (points[i].calcDistance() < leastDistance)
+            {
+                leastDistance = points[i].calcDistance();
+            }
+        }
+    }
+
     public String toString()
     {
         String stringPoly = "[";
@@ -125,5 +138,8 @@ public class Polygon
         return stringPoly;
     }
 
-
+    public double getLeastDistance()
+    {
+        return leastDistance;
+    }
 }
