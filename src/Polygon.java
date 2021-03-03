@@ -3,12 +3,13 @@ public class Polygon
     private Point[] points;
     private int pointsSize;
 
-    private int area;
+    private double area;
     private double distance;
 
     public Polygon(String params)
     {
         interpretString(params);
+        calcArea();
     }
 
     private void interpretString(String params)
@@ -31,7 +32,8 @@ public class Polygon
             }
         }
         int numberPoints = Integer.valueOf(temp);
-        points = new Point[numberPoints];
+        // Create an extra space at the end to store a duplicate of the first point for area calculation
+        points = new Point[numberPoints + 1];
         pointsSize = 0;
         // Remove leading space and then calculate the points
         params = params.substring(1);
@@ -46,7 +48,6 @@ public class Polygon
         paramsLength = params.length();
         for (int i = 0; i < paramsLength; i++)
         {
-            //System.out.println(params);
             if (params.charAt(0) == ' ')
             {
                 while ((params.length() != 0) && (params.charAt(0) == ' '))
@@ -71,7 +72,7 @@ public class Polygon
                     temp = "";
                     createPoint = true;
                 }
-                // If params ends in a space, there's no more numbers to create
+                // If params is empty, there's no more numbers to create
                 if (params.length() == 0)
                 {
                     break;
@@ -83,13 +84,35 @@ public class Polygon
                 params = params.substring(1);
             }
         }
+
+        // Add last point into the array as a duplicate of the first item
+        newPoint = new Point(points[0].getX(), points[0].getY());
+        points[pointsSize] = newPoint;
+        pointsSize++;
+    }
+
+    private void calcArea()
+    {
+        area = 0;
+        for (int i = 0; i < pointsSize - 1; i++)
+        {
+            area += (points[i].getX() + points[i + 1].getX()) * (points[i + 1].getY() - points[i].getY());
+        }
+        if (area < 0)
+        {
+            area *= -1;
+        }
+        area /= 2;
+
+
     }
 
     public String toString()
     {
         String stringPoly = "[";
 
-        for (int i = 0; i < pointsSize; i++)
+        // The last point in the array is the same as the first point, so do not print it out
+        for (int i = 0; i < pointsSize - 1; i++)
         {
             stringPoly += " " + points[i].toString();
         }
@@ -97,9 +120,10 @@ public class Polygon
         stringPoly += " ]:    ";
 
         // AREA
-        stringPoly += "AREA";
+        stringPoly += String.format("%5.2f", area);
 
         return stringPoly;
     }
+
 
 }
