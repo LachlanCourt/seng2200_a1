@@ -132,7 +132,7 @@ public class Polygon implements ComparePoly
 
         if (pointsSize < 7)
         {
-            stringPoly += " ".repeat(17).repeat(7-pointsSize);
+            stringPoly += " ".repeat(18).repeat(7-pointsSize);
         }
 
         stringPoly += " ]:    ";

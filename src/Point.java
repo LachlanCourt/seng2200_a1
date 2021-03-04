@@ -34,7 +34,7 @@ public class Point
     {
         int xSpaces = 6 - String.format("%3.2f", x).length();
         int ySpaces = 6 - String.format("%3.2f", y).length();
-        return "(" + (" ".repeat(xSpaces)) + String.format("%3.2f", x) + " ," + (" ".repeat(ySpaces)) + String.format("%3.2f", y) + ")";
+        return "(" + (" ".repeat(xSpaces)) + String.format("%3.2f", x) + " ," + (" ".repeat(ySpaces)) + String.format("%3.2f", y) + " )";
     }
 
     public double calcDistance()
