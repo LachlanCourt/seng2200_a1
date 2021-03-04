@@ -62,7 +62,6 @@ public class PA1
 
 
         sortedPolygons.reset();
-        System.out.println(sortedPolygons.getSize());
         counter = 0;
         while (true)
         {
