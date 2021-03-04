@@ -11,6 +11,12 @@ Note: You may not have to use all the above methods in this assi
      */
     private Node sentinel = new Node();
     private Node current = sentinel;
+    int size;
+
+    public MyPolygons()
+    {
+        size = 0;
+    }
 
     public void prepend(Object data_)
     {
@@ -21,6 +27,7 @@ Note: You may not have to use all the above methods in this assi
         current.setPrev(temp);
         sentinel.setNext(temp);
         reset();
+        size++;
     }
 
     public void append(Object data_)
@@ -40,6 +47,7 @@ Note: You may not have to use all the above methods in this assi
         temp.setNext(sentinel);
         sentinel.setPrev(temp);
         reset();
+        size++;
     }
 
     public void insert(Object data_)
@@ -49,6 +57,29 @@ Note: You may not have to use all the above methods in this assi
         temp.setPrev(current.getPrev());
         current.getPrev().setNext(temp);
         current.setPrev(temp);
+        size++;
+    }
+
+    public void insertInOrder(Object data_)
+    {
+        reset();
+        if (current == sentinel)
+        {
+            prepend(data_);
+        }
+        else
+        {
+            Polygon temp = (Polygon) data_;
+            while (temp.ComesBefore(current.getData()))
+            {
+                if (step() == -1)
+                {
+                    append(data_);
+                    return;
+                }
+            }
+            insert(data_);
+        }
     }
 
     public int step()
@@ -91,11 +122,18 @@ Note: You may not have to use all the above methods in this assi
             current.setNext(null);
             current.setPrev(null);
             reset();
+            size--;
             return temp;
+
         }
         else
         {
             return null;
         }
+    }
+
+    public int getSize()
+    {
+        return size;
     }
 }

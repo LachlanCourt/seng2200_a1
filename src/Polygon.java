@@ -150,7 +150,7 @@ public class Polygon implements ComparePoly
 
     public boolean ComesBefore(Object o)
     {
-        Polygon other = (Polygon)o;
+        Polygon other = (Polygon) o;
         double differenceMargin;
         double areaTest;
         if (area - other.getArea() < 0)
@@ -171,11 +171,11 @@ public class Polygon implements ComparePoly
         {
             if (leastDistance < other.getLeastDistance())
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
         if (area < other.getArea())
