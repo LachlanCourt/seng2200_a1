@@ -16,6 +16,8 @@ Note: You may not have to use all the above methods in this assi
     public MyPolygons()
     {
         size = 0;
+        sentinel.setNext(sentinel);
+        sentinel.setPrev(sentinel);
     }
 
     public void prepend(Object data_)
@@ -32,19 +34,11 @@ Note: You may not have to use all the above methods in this assi
 
     public void append(Object data_)
     {
+        reset();
         Node temp = new Node(data_);
-        if (current != sentinel)
-        {
-            current = sentinel.getPrev();
-            temp.setPrev(current);
-            current.setNext(temp);
-        }
-        else
-        {
-            temp.setPrev(sentinel);
-            sentinel.setNext(temp);
-        }
         temp.setNext(sentinel);
+        temp.setPrev(sentinel.getPrev());
+        sentinel.getPrev().setNext(temp);
         sentinel.setPrev(temp);
         reset();
         size++;
@@ -85,36 +79,27 @@ Note: You may not have to use all the above methods in this assi
     public int step()
     {
         // If current is sentinel then the list is empty and it cannot step
-        if (current != sentinel)
+
+        current = current.getNext();
+        // If after the step the current has become the sentinel, the list has reached the end. Step again to be on the first item and return -1
+        if (current == sentinel)
         {
-            current = current.getNext();
-            // If after the step the current has become the sentinel, the list has reached the end. Step again to be on the first item and return -1
-            if (current == sentinel)
-            {
-                current = sentinel.getNext();
-                return -1;
-            }
+            reset();
+            return -1;
         }
+
         return 0;
     }
 
-    public int reset()
+    public void reset()
     {
-        if (sentinel.getNext() != null)
-        {
-            current = sentinel.getNext();
-        }
-        else
-        {
-            current = sentinel;
-            return -1;
-        }
-        return 0;
+        current = sentinel.getNext();
     }
 
     public Object take()
     {
-        if (reset() != -1)
+        reset();
+        if (size > 0)
         {
             Object temp = current.getData();
             current.getNext().setPrev(sentinel);
