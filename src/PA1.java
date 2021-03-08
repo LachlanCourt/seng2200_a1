@@ -10,17 +10,19 @@ import java.io.*;
 
 public class PA1
 {
-    MyPolygons myPolygonsList = new MyPolygons();
-    MyPolygons sortedPolygons = new MyPolygons();
+    private MyPolygons myPolygonsList = new MyPolygons();
+    private MyPolygons sortedPolygons = new MyPolygons();
     static String filename;
 
     public static void main(String args[])
     {
         try
-        {filename = args[0];}
+        {
+            filename = args[0];
+        }
         catch (ArrayIndexOutOfBoundsException e)
         {
-            System.out.println("No file specified in load, Enter filename:");
+            System.out.println("No file specified at program load. Terminating...");
             Scanner s = new Scanner(System.in);
             filename = s.nextLine();
             s.close();
@@ -31,12 +33,14 @@ public class PA1
 
     public void run()
     {
+
         String inputText = readFromTextFile();
         if (inputText == null)
         {
-            System.out.println("Program terminated");
+            System.out.println("Error loading text file. Check file name and try again. Terminating...");
             return;
         }
+
         System.out.println("Text file loaded successfully. Generating Polygons...");
         while (inputText.compareTo("") != 0)
         {
@@ -48,7 +52,7 @@ public class PA1
         int counter = 0;
         while (true)
         {
-            Polygon temp = (Polygon)myPolygonsList.take();
+            Polygon temp = (Polygon) myPolygonsList.take();
             System.out.println(temp.toString());
             myPolygonsList.append(temp);
             sortedPolygons.insertInOrder(temp);
@@ -65,7 +69,7 @@ public class PA1
         counter = 0;
         while (true)
         {
-            Polygon temp = (Polygon)sortedPolygons.take();
+            Polygon temp = (Polygon) sortedPolygons.take();
             System.out.println(temp.toString());
             sortedPolygons.append(temp);
             if (counter == sortedPolygons.getSize() - 1)
@@ -77,7 +81,7 @@ public class PA1
         System.out.println("Program complete!");
 
     }
-    
+
     private String createPolygon(String text)
     {
         String polygonString = "";

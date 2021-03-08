@@ -130,11 +130,6 @@ public class Polygon implements ComparePoly
             stringPoly += " " + points[i].toString();
         }
 
-        if (pointsSize < 7)
-        {
-            stringPoly += " ".repeat(18).repeat(7-pointsSize);
-        }
-
         stringPoly += " ]:    ";
 
         // AREA
