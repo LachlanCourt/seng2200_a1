@@ -1,6 +1,6 @@
 public class Node
 {
-    private Object data;
+    private Polygon data;
     private Node next;
     private Node prev;
 
@@ -9,17 +9,17 @@ public class Node
         data = null;
     }
 
-    public Node(Object data_)
+    public Node(Polygon data_)
     {
         data = data_;
     }
 
-    public Object getData()
+    public Polygon getData()
     {
         return data;
     }
 
-    public void setData(Object data_)
+    public void setData(Polygon data_)
     {
         data = data_;
     }
