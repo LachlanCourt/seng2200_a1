@@ -47,7 +47,7 @@ public class PA1
         int counter = 0;
         while (true)
         {
-            Polygon temp = (Polygon) myPolygonsList.removeFromHead();
+            Polygon temp = myPolygonsList.removeFromHead();
             System.out.println(temp.toString());
             myPolygonsList.append(temp);
             sortedPolygons.insertInOrder(temp);
@@ -64,7 +64,7 @@ public class PA1
         counter = 0;
         while (true)
         {
-            Polygon temp = (Polygon) sortedPolygons.removeFromHead();
+            Polygon temp = sortedPolygons.removeFromHead();
             System.out.println(temp.toString());
             sortedPolygons.append(temp);
             if (counter == sortedPolygons.getSize() - 1)

@@ -25,7 +25,7 @@ test
      *
      * @param data_
      */
-    public void prepend(Object data_)
+    public void prepend(Polygon data_)
     {
         currentToHead();
         Node temp = new Node(data_);
@@ -37,7 +37,7 @@ test
         size++;
     }
 
-    public void append(Object data_)
+    public void append(Polygon data_)
     {
         currentToHead();
         Node temp = new Node(data_);
@@ -49,7 +49,7 @@ test
         size++;
     }
 
-    public void insert(Object data_)
+    public void insert(Polygon data_)
     {
         Node temp = new Node(data_);
         temp.setNext(current);
@@ -59,7 +59,7 @@ test
         size++;
     }
 
-    public void insertInOrder(Object data_)
+    public void insertInOrder(Polygon data_)
     {
         currentToHead();
         if (current == sentinel)
@@ -68,7 +68,7 @@ test
         }
         else
         {
-            Polygon temp = (Polygon) data_;
+            Polygon temp = data_;
             while (temp.ComesBefore(current.getData()))
             {
                 if (!hasNext())
@@ -111,12 +111,12 @@ test
         current = sentinel.getNext();
     }
 
-    public Object removeFromHead()
+    public Polygon removeFromHead()
     {
         currentToHead();
         if (size > 0)
         {
-            Object temp = current.getData();
+            Polygon temp = current.getData();
             current.getNext().setPrev(sentinel);
             sentinel.setNext(current.getNext());
             current.setNext(null);
