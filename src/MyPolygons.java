@@ -8,6 +8,7 @@ public class MyPolygons
 • reset the current item variable to the start of your list, and,
 • take (then remove) an item from the head of the list.
 Note: You may not have to use all the above methods in this assi
+test
      */
     private Node sentinel = new Node();
     private Node current = sentinel;
