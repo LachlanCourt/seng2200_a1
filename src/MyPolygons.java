@@ -8,7 +8,7 @@ public class MyPolygons
 • reset the current item variable to the start of your list, and,
 • take (then remove) an item from the head of the list.
 Note: You may not have to use all the above methods in this assi
-test
+
      */
     private Node sentinel = new Node();
     private Node current = sentinel;
@@ -71,17 +71,19 @@ test
             Polygon temp = (Polygon) data_;
             while (temp.ComesBefore(current.getData()))
             {
-                if (step() == -1)
+                if (!hasNext())
                 {
+                    next();
                     append(data_);
                     return;
                 }
+                next();
             }
             insert(data_);
         }
     }
 
-    public int step()
+    public Polygon next()
     {
         // If current is sentinel then the list is empty and it cannot step
 
@@ -90,10 +92,18 @@ test
         if (current == sentinel)
         {
             reset();
-            return -1;
         }
 
-        return 0;
+        return (Polygon) current.getData();
+    }
+
+    public boolean hasNext()
+    {
+        if (current.getNext() == sentinel)
+        {
+            return false;
+        }
+        return true;
     }
 
     public void reset()
