@@ -27,25 +27,25 @@ Note: You may not have to use all the above methods in this assi
      */
     public void prepend(Object data_)
     {
-        reset();
+        currentToHead();
         Node temp = new Node(data_);
         temp.setNext(current);
         temp.setPrev(sentinel);
         current.setPrev(temp);
         sentinel.setNext(temp);
-        reset();
+        currentToHead();
         size++;
     }
 
     public void append(Object data_)
     {
-        reset();
+        currentToHead();
         Node temp = new Node(data_);
         temp.setNext(sentinel);
         temp.setPrev(sentinel.getPrev());
         sentinel.getPrev().setNext(temp);
         sentinel.setPrev(temp);
-        reset();
+        currentToHead();
         size++;
     }
 
@@ -61,7 +61,7 @@ Note: You may not have to use all the above methods in this assi
 
     public void insertInOrder(Object data_)
     {
-        reset();
+        currentToHead();
         if (current == sentinel)
         {
             prepend(data_);
@@ -91,7 +91,7 @@ Note: You may not have to use all the above methods in this assi
         // If after the step the current has become the sentinel, the list has reached the end. Step again to be on the first item and return -1
         if (current == sentinel)
         {
-            reset();
+            currentToHead();
         }
 
         return (Polygon) current.getData();
@@ -106,14 +106,14 @@ Note: You may not have to use all the above methods in this assi
         return true;
     }
 
-    public void reset()
+    public void currentToHead()
     {
         current = sentinel.getNext();
     }
 
-    public Object take()
+    public Object removeFromHead()
     {
-        reset();
+        currentToHead();
         if (size > 0)
         {
             Object temp = current.getData();
@@ -121,7 +121,7 @@ Note: You may not have to use all the above methods in this assi
             sentinel.setNext(current.getNext());
             current.setNext(null);
             current.setPrev(null);
-            reset();
+            currentToHead();
             size--;
             return temp;
 

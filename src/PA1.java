@@ -1,8 +1,5 @@
 //Allows scanning of a directory to get all available txt files to read as input
 
-import org.w3c.dom.ls.LSOutput;
-
-import java.nio.file.*;
 //Allows use of Scanner class to read txt files
 import java.util.*;
 //Allows opening of files for reading
@@ -46,11 +43,11 @@ public class PA1
         }
 
         System.out.println("Unsorted list:");
-        myPolygonsList.reset();
+        myPolygonsList.currentToHead();
         int counter = 0;
         while (true)
         {
-            Polygon temp = (Polygon) myPolygonsList.take();
+            Polygon temp = (Polygon) myPolygonsList.removeFromHead();
             System.out.println(temp.toString());
             myPolygonsList.append(temp);
             sortedPolygons.insertInOrder(temp);
@@ -63,11 +60,11 @@ public class PA1
         System.out.println("Sorted List:");
 
 
-        sortedPolygons.reset();
+        sortedPolygons.currentToHead();
         counter = 0;
         while (true)
         {
-            Polygon temp = (Polygon) sortedPolygons.take();
+            Polygon temp = (Polygon) sortedPolygons.removeFromHead();
             System.out.println(temp.toString());
             sortedPolygons.append(temp);
             if (counter == sortedPolygons.getSize() - 1)
