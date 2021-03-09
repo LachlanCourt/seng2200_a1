@@ -19,16 +19,14 @@ public class PA1
         try
         {
             filename = args[0];
+            PA1 assignment = new PA1();
+            assignment.run();
         }
         catch (ArrayIndexOutOfBoundsException e)
         {
             System.out.println("No file specified at program load. Terminating...");
-            Scanner s = new Scanner(System.in);
-            filename = s.nextLine();
-            s.close();
         }
-        PA1 Assignment = new PA1();
-        Assignment.run();
+
     }
 
     public void run()

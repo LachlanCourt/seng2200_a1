@@ -20,6 +20,10 @@ Note: You may not have to use all the above methods in this assi
         sentinel.setPrev(sentinel);
     }
 
+    /**
+     *
+     * @param data_
+     */
     public void prepend(Object data_)
     {
         reset();
