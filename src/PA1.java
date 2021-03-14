@@ -44,34 +44,24 @@ public class PA1
 
         System.out.println("Unsorted list:");
         myPolygonsList.currentToHead();
-        int counter = 0;
-        while (true)
+        int listSize = myPolygonsList.getSize();
+        for (int i = 0; i < listSize; i++)
         {
             Polygon temp = myPolygonsList.removeFromHead();
             System.out.println(temp.toString());
             myPolygonsList.append(temp);
             sortedPolygons.insertInOrder(temp);
-            if (counter == myPolygonsList.getSize() - 1)
-            {
-                break;
-            }
-            counter++;
         }
         System.out.println("Sorted List:");
 
 
         sortedPolygons.currentToHead();
-        counter = 0;
-        while (true)
+        listSize = sortedPolygons.getSize();
+        for (int i = 0; i < listSize; i++)
         {
             Polygon temp = sortedPolygons.removeFromHead();
             System.out.println(temp.toString());
             sortedPolygons.append(temp);
-            if (counter == sortedPolygons.getSize() - 1)
-            {
-                break;
-            }
-            counter++;
         }
         System.out.println("Program complete!");
 
