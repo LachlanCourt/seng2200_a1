@@ -2,7 +2,7 @@
  ****    SENG2200 Assignment 1
  ****    c3308061
  ****    Lachlan Court
- ****    12/03/2021
+ ****    16/03/2021
  */
 
 // Used for sqrt function

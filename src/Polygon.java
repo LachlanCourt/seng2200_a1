@@ -246,13 +246,14 @@ public class Polygon implements ComparePoly
         double differenceMargin;
         double areaTest;
         // Determine the smaller polygon and calculate 0.05% of this area
+        double margin = 0.0005;
         if (area - other.getArea() < 0)
         {
-            differenceMargin = 0.05 * area;//TODO: THIS RIGHT OR NO???
+            differenceMargin = margin * area;
         }
         else
         {
-            differenceMargin = 0.05 * other.getArea();
+            differenceMargin = margin * other.getArea();
         }
         // Calculate the difference in area between both polygons
         areaTest = area - other.getArea();
