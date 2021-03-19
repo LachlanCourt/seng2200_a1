@@ -1,9 +1,13 @@
-/*
+/*******************************************************************************
  ****    SENG2200 Assignment 1
  ****    c3308061
  ****    Lachlan Court
- ****    16/03/2021
- */
+ ****    19/03/2021
+ ****    This is the main execution class. It reads data from a text file
+ ****    specified in the arguments at execution and develops a number of Polygons
+ ****    from this which it stores in a Linked List. It then inserts these into a
+ ****    second Linked List decreasing order of size and outputs them both
+ *******************************************************************************/
 
 //Allows use of Scanner class to read txt files
 

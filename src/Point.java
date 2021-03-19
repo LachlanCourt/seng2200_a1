@@ -1,9 +1,11 @@
-/*
+/*******************************************************************************
  ****    SENG2200 Assignment 1
  ****    c3308061
  ****    Lachlan Court
- ****    16/03/2021
- */
+ ****    19/03/2021
+ ****    This class is a Point for a Polygon class that will store x, y
+ ****    coordinates of a point in a Polygon
+ *******************************************************************************/
 
 // Used for sqrt function
 

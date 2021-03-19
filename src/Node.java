@@ -1,9 +1,10 @@
-/*
+/*******************************************************************************
 ****    SENG2200 Assignment 1
 ****    c3308061
 ****    Lachlan Court
-****    16/03/2021
- */
+****    19/03/2021
+****    This class is a Node for a Linked List class that stores Polygon objects
+ *******************************************************************************/
 
 public class Node
 {
@@ -25,7 +26,6 @@ public class Node
     }
 
     /**
-     *
      * @return data in Node
      */
     public Polygon getData()
@@ -34,7 +34,6 @@ public class Node
     }
 
     /**
-     *
      * @param data_ takes a Polygon object and stores it in the data variable
      */
     public void setData(Polygon data_)
@@ -43,7 +42,6 @@ public class Node
     }
 
     /**
-     *
      * @return the next Node in the LinkedList
      */
     public Node getNext()
@@ -52,7 +50,6 @@ public class Node
     }
 
     /**
-     *
      * @param next_ takes a Node object and sets it as the next in the LinkedList
      */
     public void setNext(Node next_)
@@ -61,7 +58,6 @@ public class Node
     }
 
     /**
-     *
      * @return the previous Node in the LinkedList
      */
     public Node getPrev()
@@ -70,7 +66,6 @@ public class Node
     }
 
     /**
-     *
      * @param prev_ takes a Node object and sets it as the previous in the LinkedList
      */
     public void setPrev(Node prev_)

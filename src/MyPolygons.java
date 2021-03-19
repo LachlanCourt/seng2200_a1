@@ -1,20 +1,23 @@
-/*
+/*******************************************************************************
  ****    SENG2200 Assignment 1
  ****    c3308061
  ****    Lachlan Court
- ****    14/03/2021
- */
+ ****    19/03/2021
+ ****    This class is a Linked List that stores Polygon objects
+ *******************************************************************************/
 public class MyPolygons
 {
     // Instance variables
-    private Node sentinel = new Node();
-    private Node current = sentinel;
+    private Node sentinel ;
+    private Node current;
     private int size;
 
     // Default Constructor
     public MyPolygons()
     {
         size = 0;
+        sentinel = new Node();
+        current = sentinel;
         sentinel.setNext(sentinel);
         sentinel.setPrev(sentinel);
     }
@@ -105,7 +108,7 @@ public class MyPolygons
             // Create a temporary polygon in order to check the correct position using the ComesBefore method
             Polygon temp = data_;
             // Loop through from the start of the list, checking each polygon against the temporary one
-            while (temp.ComesBefore(current.getData()))
+            while (temp.comesBefore(current.getData()))
             {
                 // If execution has reached the end of the list, add the item to the end of the list
                 if (!hasNext())
@@ -209,7 +212,7 @@ public class MyPolygons
     }
 
     /**
-     *
+     * Returns the size of the Linked List
      * @return the size of the Linked List
      * Preconditions: None
      * Postcondition: Size of the Linked List is returned
@@ -219,6 +222,7 @@ public class MyPolygons
         return size;
     }
 
+    @Override
     public String toString()
     {
         String returnData = "";
