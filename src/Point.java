@@ -68,7 +68,7 @@ public class Point
     @Override
     public String toString()
     {
-        return "(" + String.format("%3.2f", x) + " ," + String.format("%3.2f", y) + " )";
+        return "(" + String.format("%3.2f", x) + " , " + String.format("%3.2f", y) + " )";
     }
 
     /**

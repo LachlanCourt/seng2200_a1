@@ -70,9 +70,8 @@ public class PA1
         int listSize = myPolygonsList.getSize();
         for (int i = 0; i < listSize; i++)
         {
-            Polygon temp = myPolygonsList.removeFromHead();
+            Polygon temp = myPolygonsList.next();
             sortedPolygons.insertInOrder(temp);
-            myPolygonsList.append(temp);
         }
 
         // Output the sorted list
